@@ -1,0 +1,141 @@
+.sidebar {
+  max-width: 260px;
+  width: 100%;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  padding: 20px;
+}
+.sidebar-logo {
+  font-size: 37.5px;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.sidebar button,
+.sidebar a {
+  transition: all 0.3s ease-in-out;
+  margin-top: 10px;
+  align-items: center;
+  display: flex;
+  color: black;
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 5px;
+  width: 100%;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+.sidebar button span,
+.sidebar a span {
+  margin-left: 10px;
+}
+
+.sidebar button span {
+  font-size: 16px;
+}
+
+.sidebar a i,
+.sidebar button i {
+  font-size: 19px;
+}
+
+.sidebar a.active {
+  background-color: #f5e8c1;
+}
+
+.sidebar button:hover,
+.sidebar a:hover:not(.active) {
+  background-color: #f5e8c18e;
+}
+
+/* topbar starts */
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 260px;
+  background: white;
+  max-width: calc(100% - 260px);
+  width: 100%;
+  height: 68px;
+  box-shadow: 0 7px 10px -10px black;
+}
+.topbar-inner {
+  height: 100%;
+  width: 100%;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 500;
+  justify-content: space-between;
+}
+
+.topbar-action {
+  max-width: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.listIcon {
+  display: none;
+}
+.topbar-action a {
+  color: black;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    transition: all 0.5s ease-in-out;
+    left: -260px;
+    height: 100%;
+    text-align: center;
+  }
+  .sidebar.toggle {
+    left: 0;
+  }
+
+  .topbar {
+    left: 0;
+    max-width: 100%;
+  }
+  .topbar-action a {
+    display: none;
+  }
+  .listIcon {
+    position: relative;
+    display: block;
+    height: 15px;
+    background: red;
+    cursor: pointer;
+  }
+  .listIcon::before,
+  .listIcon::after {
+    position: absolute;
+    content: " ";
+    height: 2px;
+    width: 30px;
+    background: black;
+    transition: all 0.5s ease-in-out;
+  }
+  .listIcon::after {
+    bottom: 0;
+  }
+  .listIcon::before {
+    top: 0;
+  }
+  .listIcon.toggle::after {
+    bottom: 41%;
+    transform: rotate(135deg);
+  }
+  .listIcon.toggle::before {
+    top: 41%;
+    transform: rotate(-135deg);
+  }
+}
